@@ -44,7 +44,7 @@ int main() {
 
     int sumCaloriesFirst3Elves = maxCaloriesSumElf1 + maxCaloriesSumElf2 + maxCaloriesSumElf3;
 
-    fout << maxCaloriesSumElf1 << " " << maxCaloriesSumElf2 << " " << " " << maxCaloriesSumElf3 << "\n";
+    fout << maxCaloriesSumElf1 << " " << maxCaloriesSumElf2  << " " << maxCaloriesSumElf3 << "\n";
     fout << sumCaloriesFirst3Elves;
 
     fout.close();

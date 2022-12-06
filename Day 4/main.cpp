@@ -26,10 +26,10 @@ bool partialContains(const intervals &currentPair) {
     pair<int, int> firstInterval = currentPair.firstInterval;
     pair<int, int> secondInterval = currentPair.secondInterval;
 
-    int intersectionFirstCoordinate = max(firstInterval.first, secondInterval.first);
-    int intersectionSecondCoordinate = min(firstInterval.second, secondInterval.second);
+    int maxFirstValue = max(firstInterval.first, secondInterval.first);
+    int minSecondValue = min(firstInterval.second, secondInterval.second);
 
-    if (intersectionFirstCoordinate <= intersectionSecondCoordinate)
+    if (maxFirstValue <= minSecondValue)
         return true;
 
     return false;
@@ -38,8 +38,8 @@ bool partialContains(const intervals &currentPair) {
 int main() {
     string currentLine;
     vector<intervals> elves;
-    int fullContainPairs = 0;
-    int partialContainsPairs = 0;
+    int nrFullContainPairs = 0;
+    int nrOverlapPairs = 0;
 
     while (!fin.eof()) {
         int x1, y1, x2, y2;
@@ -55,12 +55,12 @@ int main() {
 
     for (auto &currentElf: elves) {
         if (fullyContains(currentElf))
-            fullContainPairs++;
+            nrFullContainPairs++;
         if (partialContains(currentElf))
-            partialContainsPairs++;
+            nrOverlapPairs++;
     }
 
-    fout << fullContainPairs << " " << partialContainsPairs;
+    fout << nrFullContainPairs << " " << nrOverlapPairs;
 
     fout.close();
     return 0;
